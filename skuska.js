@@ -1,28 +1,4 @@
-for(var i=0;i<3;i++)
-{ 
-    setTimeout(function(){
-        console.log(i);
-    },i);
-}
-
-console.log(typeof[1,2,3].sort);
-console.log(typeof[]); 
-console.log(typeof[1,2,3]);
-console.log(typeof[1,2,3].length)
-
-var a = fn("abc", "abcdef"); // a=0 
-var b = fn("bc","abcdef"); // b=1 
-var c = fn("g","abcdef"); // c=null
-console.log(a);
-console.log(b);
-console.log(c);
-
-function fn(sub, string){
-    if(string.includes(sub)) return string.indexOf(sub); else return null;
-}
-
-
-
+//REACT component
 import React, {useEffect, useState} from 'react';
 function Car(props) {
     const [defCar, setDefCar] = useState({name: "x5", brand: "bmw"});
@@ -42,6 +18,8 @@ function Car(props) {
 export default Car;
 
 
+//REQUIRE THINGS
+
 //modul.js
 exports.fn = function(n) {
     return n + "";
@@ -50,7 +28,7 @@ exports.fn = function(n) {
   //fn(10);
 
 
-  
+//PROMISE
   function addA(param) {
     return new Promise((resolve, reject) => {
     try {
@@ -69,9 +47,24 @@ exports.fn = function(n) {
     }).then((res) => { console.log(res);
     });
 
+//CALLBACK HELL
+fetchLocations('/global-weather',function(data) {
+    weatherOk(data, function(okdata) {
+        perDay(okdata, function(day) {
+            dayDataElement(day, function(element) {
+                appendToParent(element, document.body);
+            });
+}); });
+});
 
 
+fetchLocations('/global-weather')
+           .then((data) => weatherOk(data))
+           .then((okdata) => perDay(okdata))
+           .then((day) => dayDataElement(day))
+           .then((element) => appendToParent(element, document.body))
 
+//MOCHA TESTING
     describe('End 2 end testing and MOCHA', () => {
         describe('register method', () => {
           it('Register user testing', (done) => {
@@ -98,7 +91,7 @@ exports.fn = function(n) {
           });
         });
 
-
+    })
 
 
         // timers: faza spustajuca callbacky setTimeout() a setInterval().
